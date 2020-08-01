@@ -1,1 +1,24 @@
+<!--<h1> Home Page Robin</h1>-->
+{% extends 'base.html' %}
 
+{% block head %}
+<title> Home </title>
+{% endblock %}
+
+{% block body %}
+<br>
+<h1> Home page </h1>
+<br>
+<main role="main">
+    <div class="jumbotron">
+      <div class="col-sm-8 mx-auto">
+        <h1>Wel Come</h1>
+        <p>Wel Come to Example blog. Here you can look at creation of blog and how to operate on that blog.<!--<code>.container</code>.-->  </p>
+        <p>View My profile On <a href="https://www.linkedin.com/in/robinrayappa">Linkedin</a></p>
+        <p>
+          <a class="btn btn-primary" href="/posts" role="button">Go To Posts &raquo;</a>
+        </p>
+      </div>
+    </div>
+  </main>
+{% endblock %}
