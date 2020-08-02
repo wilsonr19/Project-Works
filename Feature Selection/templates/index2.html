@@ -1,0 +1,93 @@
+<!doctype html>
+<title>Python Flask File Upload Example</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<h2>Select a file to upload</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+
+	<style type="text/css">
+		p{/*margin-left: 600px;*/
+			color:#000;
+			text-align: center;
+			font-size: 20px;
+			
+
+		}
+		h2{
+			text-align: center;
+		}
+		/*body{background-color: powderblue;
+		}*/
+		body{
+			border-style: double;
+			border-color: blue;
+			background-color: powderblue;
+		}
+		/*#dvCSV{
+			border-style: double;
+			border-color: blue;
+		}*/
+	</style>
+</p>
+<script type="text/javascript">
+    function Upload() {
+        var fileUpload = document.getElementById("fileUpload");
+        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt|.pdf|.xlsx|.jpeg|.bmp|.png|.webp|.doc|.docx|.jpg)$/;
+        //var regex2 = /^([a-zA-Z0-9\s_\\.\-:])+(.pdf)$/;
+        //var dvCSV=document.getElementById("dvCSV")
+       
+        if (regex.test(fileUpload.value.toLowerCase())) {
+            if (typeof (FileReader) != "undefined") {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var table = document.createElement("table");
+                    var rows = e.target.result.split("\n");
+                    for (var i = 0; i < rows.length; i++) {
+                        var cells = rows[i].split(",");
+                        if (cells.length > 1) {
+                            var row = table.insertRow(-1);
+                            for (var j = 0; j < cells.length; j++) {
+                                var cell = row.insertCell(-1);
+                                cell.innerHTML = cells[j];
+                            }
+                        }
+                    }
+                    var dvCSV = document.getElementById("dvCSV");
+                    dvCSV.innerHTML = "";
+                    dvCSV.appendChild(table);
+                   
+                }
+                reader.readAsText(fileUpload.files[0]);
+
+            } else {
+                alert("This browser does not support HTML5.");
+            }
+        } else {
+            alert("Please upload a valid CSV file.");
+        }
+    }
+</script>
+<body>
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    <dl>
+		<p>
+			Choose File:<input type="file" name="file"  id="fileUpload"  autocomplete="off" required  style="width: 250px">
+		</p>
+    </dl>
+    <p>
+		<input type="submit" value="Submit" id="upload" class="btn btn-primary" onclick="Upload()">
+	</p>
+	<hr />
+	<div id="dvCSV">
+	</div>
+	{{ file }}
+</form>
+</body>

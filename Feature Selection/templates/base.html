@@ -1,1 +1,80 @@
+<html>
+<head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <style>
+      body{background-color: powderblue;
+         font-family: verdana;
+         border-style: double;
+         border-color: blue;}
+   .stl{float = right;
+      font-size: 20px;}
+      .s{
+         font-size: 25px;
+      }
+   </style>
 
+ </head>
+   <body>
+      <form action = "{{ url_for('display') }}" method = "post" align=center>
+      <h1>Feature Selection</h1>
+      <blockquote class="s">Select the target variable for the regression model.
+         <p>Set a threshold value for the correlation,above which the column will be selected.</p>
+         <p>Categorical threshold for categorical variable and numerical threshold for numerical variable.</p></blockquote>
+
+
+      <div class="stl">
+         </br></br><label for="num">Points (between 0 and 1):</label>
+         <input type="range" id="num" name="num" min="0" max="1" step = "0.05"> 
+         <p>Numerical Threshold: <span id="num1"></span></p>
+      </div>
+         <script>
+         var slider = document.getElementById("num");
+         var output_num = document.getElementById("num1");
+         output_num.innerHTML = slider.value; 
+         // Display the default slider value
+         // Update the current slider value (each time you drag the slider handle)
+         slider.oninput = function() {
+         output_num.innerHTML = this.value;}
+         </script>
+         <div class="stl">
+        </br></br> <label for="cat">Points (between 0 and 1):</label>
+         <input type="range" id="cat" name="cat" min="0" max="1" step = "0.05"> 
+         <p>Categorical Threshold: <span id="cat1"></span></p>
+      </div>
+         <script>
+         var slider = document.getElementById("cat");
+         var output_cat = document.getElementById("cat1");
+         output_cat.innerHTML = slider.value; 
+         // Display the default slider value
+         // Update the current slider value (each time you drag the slider handle)
+         slider.oninput = function() {
+         output_cat.innerHTML = this.value;}
+         </script>
+         </br></br></br></br>
+         <label for="column"><h4>Choose the target variable:</h4></label>
+         <select id="column" name = "column">
+         {%for i in posts%}
+         <option value = "{{i}}">{{i}}</option>
+         {%endfor%}
+         </select><br /><br />
+         <input type="submit" name="action" value = "Submit " class="btn btn-primary"/>
+         
+      <h2> The selected Features are :</h2>
+      {% for j in var %}
+      <h3>{{j}}</h3>
+      <!--</br></br><input type="checkbox" id=j name="mycheckbox" value="{{j}}" checked>
+   </br></br>   <label for= "mycheckbox"> {{ j }}</label><br><br> -->
+      {% endfor %}
+
+      
+      {% for key in score %}
+      {% print(key + "--> ")%} {{ score[key] }} 
+      {% endfor %}
+      
+
+      <!--</br></br><input type = "submit" name = "action" value = "Select Model"/> -->
+
+      
+      </form>
+   </body>
+</html>
