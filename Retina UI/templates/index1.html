@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Info</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/contact_style.css')}}">
+</head>
+<body>
+	<section>
+	<div class="container">
+		<div class="containerinfo">
+			<div>
+				<h2>Contact Info</h2>
+				<ul class="info">
+					<li>
+						<span><img src="{{ url_for('static',filename='img/location.png')}}"></span>
+						<span>#38,8thcross<br>Bangalore</span>
+					</li>
+					<li>
+						<span><img src="{{ url_for('static',filename='img/mail.png')}}"></span>
+						<span>robinwilsonr1999@gmail.com</span>
+					</li>
+					<li>
+						<span><img src="{{ url_for('static',filename='img/contact.png')}}"></span>
+						<span>8904564346</span>
+					</li>
+				</ul>
+				<ul class="sci">
+					<li><a href="#"><img src="{{ url_for('static',filename='img/Instagram.png')}}"></a></li>
+					<li><a href="https://www.linkedin.com/in/robinrayappa/"><img src="{{ url_for('static',filename='img/link.png')}}"></a></li>
+				</ul>
+			</div>
+		</div>
+		<form action="contact" method="POST">
+		<div class="contactform">
+			<h2>Send A Message</h2>
+			<div class="formbox">
+				<div class="inputbox w50">
+					<input type="text" name="fname" required>
+					<span>First Name</span>
+				</div>
+				<div class="inputbox w50">
+					<input type="text" name="lname" required>
+					<span>Last Name</span>
+				</div>
+				<div class="inputbox w50">
+					<input type="text" name="email" required>
+					<span>Email Address</span>
+				</div>
+				<div class="inputbox w50">
+					<input type="text" name="phno" required>
+					<span>Mobile</span>
+				</div>
+				<div class="inputbox w100">
+					<textarea name="area" required></textarea>
+					<span>Comment Here..</span>
+				</div>
+				<div class="inputbox w50">
+					<input type="submit" value="send">
+					<!-- <span>First Name</span> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+	</section>
+
+</body>
+</html>

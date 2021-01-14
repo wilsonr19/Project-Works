@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>about</title>
+	<!-- <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/about-style.css')}}"> -->
+	<style type="text/css">
+		*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+.team-section{
+	overflow: hidden;
+	text-align: center;
+	background:#34495e;
+	padding: 60px;
+}
+
+.team-section{
+	text-transform: uppercase;
+	margin-bottom: 60px;
+	color: white;
+	font-size: 30px;
+
+}
+
+.border{
+	display: block;
+	margin:auto;
+	width: 160px;
+	height: 3px;
+	background:#3498db;
+	margin-bottom: 40px;
+}
+
+.ps{
+	margin-bottom: 40px;
+}
+
+.ps a{
+	display: inline-block;
+	margin:0 30px;
+	width: 160px;
+	height: 160px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.ps a img{
+	width: 100%;
+	filter: grayscale(100%);
+	transition: 0.4s all;
+
+}
+
+.ps a:hover > img{
+	filter: none;
+}
+
+.section{
+	width: 600px;
+	margin: auto;
+	font-size: 20px;
+	color: #f3de4273;
+	text-align: justify;
+	height: 0;
+	overflow: hidden;
+}
+
+.section:target{
+	height: auto;
+}
+
+.name{
+	display: block;
+	margin-bottom: 30PX;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 22px;
+
+}
+	</style>
+</head>
+<body>
+	<div class="team-section">
+		<h1>About</h1>
+		<span class="border"></span>
+		<div class="ps">
+			<a href="#p1"><img src="{{url_for('static',filename='img/g.png')}}" alt=""></a>
+			<a href="#p2"><img src="{{url_for('static',filename='img/dia.png')}}" alt=""></a>
+			<a href="#p3"><img src="{{url_for('static',filename='img/g.png')}}" alt=""></a>
+			
+		</div>
+		<div class="section" id="p1">
+			<span class="name">Normal</span>
+			<span class="border"></span>
+			<p>Retinal diseases vary widely, but most of them cause visual symptoms. Retinal diseases can affect any part of your retina, a thin layer of tissue on the inside back wall of your eye. The retina and vitreous are essential to our vision. The retina is a delicate, multilayered light-sensitive membrane lining the inside wall at the back of the eye. It is connected by the optic nerve to the brain. The macula, at the center of the retina, creates our ability to see detail. The central pit in the macula that produces the sharpest vision is the fovea. Surrounding the macula is the peripheral retina, which enables our peripheral vision. Attached to the retina, the vitreous is a gel-like substance that fills the eyeball between the lens and the retina. When the retina or vitreous are damaged from injuries, infections, illness, aging and diseases such as diabetes, vision can become impaired.</p>
+		</div>
+		<div class="section" id="p2">
+			<span class="name">Diabetic Retinopathy</span>
+			<span class="border"></span>
+			<p>Diabetic retinopathy (die-uh-BET-ik ret-ih-NOP-uh-thee) is a diabetes complication that affects eyes. It's caused by damage to the blood vessels of the light-sensitive tissue at the back of the eye (retina).
+
+At first, diabetic retinopathy may cause no symptoms or only mild vision problems. Eventually, it can cause blindness.
+
+The condition can develop in anyone who has type 1 or type 2 diabetes. The longer you have diabetes and the less controlled your blood sugar is, the more likely you are to develop this eye complication.</p>
+		</div>
+		<div class="section" id="p3">
+			<span class="name">Glaucoma</span>
+			<span class="border"></span>
+			<p>Glaucoma is a group of eye conditions that damage the optic nerve, the health of which is vital for good vision. This damage is often caused by an abnormally high pressure in your eye.
+
+Glaucoma is one of the leading causes of blindness for people over the age of 60. It can occur at any age but is more common in older adults.
+
+Many forms of glaucoma have no warning signs. The effect is so gradual that you may not notice a change in vision until the condition is at an advanced stage.
+
+Because vision loss due to glaucoma can't be recovered, it's important to have regular eye exams that include measurements of your eye pressure so a diagnosis can be made in its early stages and treated appropriately. If glaucoma is recognized early, vision loss can be slowed or prevented. If you have the condition, you'll generally need treatment for the rest of your life.</p>
+		</div>
+
+		
+	</div>
+
+</body>
+</html>
